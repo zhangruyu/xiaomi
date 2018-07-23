@@ -168,13 +168,13 @@ del{
 	right: 0;
 	margin: 0 auto;
 	z-index: 200;
-	/* transition: all 0.5s; */
+	/* transition: all 0.8s; */
 }
 .logoBox .nav a .navs .con11{
 	width: 1226px;
 	height: 0;
 	margin: 0 auto;
-	transition: height 0s;
+	/* transition: height 0s; */
 }
 .logoBox .nav a .navs .con11 .cons,.logoBox .nav a .navs .con11 .FONTS{
 	width: 203.5px;
@@ -247,13 +247,14 @@ del{
 	width: 100%;
 	height: 100%;
 }
-.bigBox .show .wraper a{
+.bigBox .show .wraper .imgbox{
 	display: block;
 	width: 100%;
 	height: 100%;
 	position: absolute;
 	left: 0;
 	top: 0;
+	z-index: 5;
 }
 .bigBox .show .left{
 	height: 100%;
@@ -361,7 +362,7 @@ del{
 	float: right;
 	transition: all 0.2s;
 }
-.bigBox .show .btns .son:hover{
+.bigBox .show .btns .hot1{
 	background-color: rgba(255, 255, 255, 0.4);
 }
 .bigBox .show .pre{

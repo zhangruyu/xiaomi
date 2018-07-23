@@ -93,4 +93,63 @@ window.onload=function () {
     xxk(pj);
     let zb=document.getElementsByClassName("zb")[0];
     xxk(zb);
+
+
+    // 轮播图
+    let Wraper=show.getElementsByClassName("Wraper")[0];
+    let imgs=show.getElementsByClassName("imgbox");
+    let pre=show.getElementsByClassName("pre")[0];
+    let end=show.getElementsByClassName("end")[0];
+    let son=show.getElementsByClassName("son");
+    let num=0;
+    let t=setInterval(move,2000);
+
+    Wraper.onmouseenter=function(){
+        clearInterval(t);
+    }
+    Wraper.onmouseleave=function(){
+        t=setInterval(move,2000);
+    }
+
+    function move(){
+        num++;
+        if(num==imgs.length){
+            num=0;
+        }
+        for(let i=0;i<imgs.length;i++){
+            imgs[i].style.zIndex=5;
+            son[imgs.length-1-i].className="son";
+        }
+        imgs[num].style.zIndex=10;
+        son[imgs.length-1-num].className="son hot1";
+    }
+    function move1(){
+        num--;
+        if(num<0){
+            num=imgs.length-1;
+        }
+        for(let i=0;i<imgs.length;i++){
+            imgs[i].style.zIndex=5;
+            son[imgs.length-1-i].className="son";
+        }
+        imgs[num].style.zIndex=10;
+        son[imgs.length-1-num].className="son hot1";
+    }
+
+    end.onclick=function(){
+        move();
+    }
+    pre.onclick=function(){
+        move1();
+    }
+    for (let k=0;k<son.length;k++){
+        son[son.length-1-k].onclick=function(){
+            for(let s=0;s<son.length;s++){
+                imgs[s].style.zIndex=5;
+                son[son.length-1-s].className="son";
+            }
+            son[son.length-1-k].className="son hot1";
+            imgs[k].style.zIndex=10;
+        }
+    }
 }
