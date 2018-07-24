@@ -138,18 +138,21 @@ window.onload=function () {
 
     end.onclick=function(){
         move();
+        clearInterval(t);
     }
     pre.onclick=function(){
         move1();
     }
+
     for (let k=0;k<son.length;k++){
-        son[son.length-1-k].onclick=function(){
+        son[k].onclick=function(){
             for(let s=0;s<son.length;s++){
-                imgs[s].style.zIndex=5;
-                son[son.length-1-s].className="son";
+                imgs[son.length-1-s].style.zIndex=5;
+                son[s].className="son";
             }
-            son[son.length-1-k].className="son hot1";
-            imgs[k].style.zIndex=10;
+            son[k].className="son hot1";
+            imgs[son.length-1-k].style.zIndex=10;
+            num=son.length-1-k;
         }
     }
 }
