@@ -155,4 +155,119 @@ window.onload=function () {
             num=son.length-1-k;
         }
     }
+
+
+
+    //双向轮播图
+    let con=document.querySelector(".nr .con");
+    let box=con.querySelectorAll(".box");
+
+    function lbt(obj){
+        let width=parseInt(getComputedStyle(obj,null).width);
+        let pre1=obj.querySelector(".pre");
+        let end1=obj.querySelector(".end");
+        let boxs=obj.querySelectorAll(".boxs");
+        let sons=obj.querySelectorAll(".son");
+        let flag=true;
+        
+        /*let p=setInterval(move2,2000);
+
+        obj.onmouseenter=function(){
+            clearInterval(p);
+        }
+        obj.onmouseleave=function(){
+            p=setInterval(move2,2000);
+        }*/
+
+        let now=0;
+        let next=0;
+        function move2(){
+            next++;
+            if (next==boxs.length){
+                next=0;
+            }
+            for(let j=0;j<sons.length;j++){
+                sons[j].classList.remove("son1");
+            }
+            sons[next].classList.add("son1");
+            boxs[next].style.left=width+"px";
+            animate(boxs[now],{left:-width});
+            animate(boxs[next],{left:0},function(){
+                flag=true;
+            });
+            console.log(flag);
+            now=next;
+        }
+        function move3(){
+            next--;
+            if (next<0){
+                next=boxs.length-1;
+            }
+            for(let j=0;j<sons.length;j++){
+                sons[j].classList.remove("son1");
+            }
+            sons[next].classList.add("son1");
+            boxs[next].style.left=-width+"px";
+            animate(boxs[now],{left:width});
+            animate(boxs[next],{left:0},function(){
+                flag=true;
+            });
+            console.log(flag);
+            now=next;
+        }
+        pre1.onclick=function(){
+            if(flag==false){
+                return;
+            }
+            
+            if(next==0){
+                return;
+            }
+            flag=false;
+            move3();
+        }
+        end1.onclick=function(){
+            if(flag==false){
+                return;
+            }
+            if(next==boxs.length-1){
+                return;
+            }
+            flag=false;
+            move2();
+        }
+
+        for (let k=0;k<sons.length;k++){
+            sons[k].onclick=function(){
+                if(k>now){
+                    for(let j=0;j<sons.length;j++){
+                        sons[j].classList.remove("son1");
+                    }
+                    sons[k].classList.add("son1");
+                    boxs[k].style.left=width+"px";
+                    animate(boxs[now],{left:-width});
+                    animate(boxs[k],{left:0});
+                    now=next=k;
+                }
+                else if(k<now){
+                    for(let j=0;j<sons.length;j++){
+                        sons[j].classList.remove("son1");
+                    }
+                    sons[k].classList.add("son1");
+                    boxs[k].style.left=-width+"px";
+                    animate(boxs[now],{left:width});
+                    animate(boxs[k],{left:0});
+                    now=next=k;
+                }
+                else{
+                    return;
+                }
+            }
+        }
+    }
+
+
+    box.forEach(function(element){
+        lbt(element);
+    })
 }
