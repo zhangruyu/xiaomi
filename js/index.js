@@ -195,7 +195,6 @@ window.onload=function () {
             animate(boxs[next],{left:0},function(){
                 flag=true;
             });
-            console.log(flag);
             now=next;
         }
         function move3(){
@@ -212,7 +211,6 @@ window.onload=function () {
             animate(boxs[next],{left:0},function(){
                 flag=true;
             });
-            console.log(flag);
             now=next;
         }
         pre1.onclick=function(){
@@ -270,4 +268,72 @@ window.onload=function () {
     box.forEach(function(element){
         lbt(element);
     })
+
+
+    // 小米闪购
+    function f3(obj){
+        let left0=obj.querySelector(".title .left");
+        let right0=obj.querySelector(".title .right");
+        let BOXcon=obj.querySelector(".BOXcon");
+        let width=parseInt(getComputedStyle(BOXcon,null).width)/2;
+        let flag=true;
+        console.log(left0,right0,BOXcon);
+
+
+        right0.onclick=function(){
+            if (!flag){
+                return;
+            }
+            right0.classList.remove("hot4");
+            right0.classList.remove("hot3");
+            animate(BOXcon,{left:-width},500);
+            flag=false;
+            left0.classList.add("hot4");
+        }
+        left0.onclick=function(){
+            if (flag){
+                return;
+            }
+            left0.classList.remove("hot4");
+            left0.classList.remove("hot3");
+            animate(BOXcon,{left:0},1000);
+            flag=true;
+            right0.classList.add("hot4");
+        }
+
+        right0.onmouseenter=function(){
+            if(!flag){
+                return;
+            }
+            right0.classList.add("hot3");
+            right0.classList.remove("hot4");
+        }
+        right0.onmouseleave=function(){
+            if(!flag){
+                return;
+            }
+            right0.classList.remove("hot3");
+            right0.classList.add("hot4");
+        }
+
+        left0.onmouseenter=function(){
+            if(flag){
+                return;
+            }
+            left0.classList.add("hot3");
+            left0.classList.remove("hot4");
+        }
+        left0.onmouseleave=function(){
+            if(flag){
+                return;
+            }
+            left0.classList.remove("hot3");
+            left0.classList.add("hot4");
+        }
+    }
+
+    let sg=document.querySelector(".sg");
+    f3(sg);
+    let tj=document.querySelector(".tj");
+    f3(tj);
 }

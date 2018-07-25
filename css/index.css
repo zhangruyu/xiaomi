@@ -457,6 +457,28 @@ del{
 .bigBox .sg .title{
 	width: 100%;
 	height: 80px;
+	color: #ccc;
+}
+.bigBox .sg .title .left,.bigBox .sg .title .right{
+	float: right;
+	width: 36px;
+	height: 24px;
+	margin-top: 44px;
+	border: 1px solid #ccc;
+	font-size: 20px;
+	font-weight: 700;
+	text-align: center;
+	line-height: 23px;
+}
+.bigBox .sg .title .hot3{
+	color: #ff6700;
+	cursor: pointer;
+}
+.bigBox .sg .title .right{
+	border-left: 0;
+}
+.bigBox .sg .title .hot4{
+	color: #666;
 }
 .bigBox .sg .title .font{
 	height: 58px;
@@ -472,6 +494,7 @@ del{
 	width: 1226px;
 	height: 340px;
 	margin: 0 auto;
+	overflow: hidden;
 }
 .bigBox .sg .con .box{
 	width: 234px;
@@ -479,36 +502,54 @@ del{
 	margin-left: 14px;
 	float: left;
 }
-.bigBox .sg .con .box:first-child{
+.bigBox .sg .con .BOX{
+	width: 992px;
+	height: 340px;
+	float: right;
+	overflow: hidden;
+	position: relative;
+}
+.bigBox .sg .con .BOXcon{
+	width: 1984px;
+	height: 340px;
+	display: flex;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.bigBox .sg .con .BOXcon .box{
+	flex-shrink: 0;
+}
+.bigBox .sg .con .box1{
 	margin-left: 0;
 	height: 339px;
 	border-top: 1px solid #e5393f;
 	background-color: #F1EDED;
 }
-.bigBox .sg .con .box:first-child h3{
+.bigBox .sg .con .box1 h3{
 	margin: 60px auto 0;
 	font-size: 21px; 
 	color: #ef3a3b;
 	font-weight: 400;
 	text-align: center;
 }
-.bigBox .sg .con .box:first-child img{
+.bigBox .sg .con .box1 img{
 	width: 34px;
 	height: 53px;
 	margin: 25px auto;
 }
-.bigBox .sg .con .box:first-child h4{
+.bigBox .sg .con .box1 h4{
 	color: rgba(0, 0, 0, 0.54);
 	text-align: center;
 	font-size: 15px;
 	font-weight: 400;
 }
-.bigBox .sg .con .box:first-child .time{
+.bigBox .sg .con .box1 .time{
 	margin-top: 28px;
 	font-size: 14px;
 	font-weight: 400;
 }
-.bigBox .sg .con .box:first-child .time .son{
+.bigBox .sg .con .box1 .time .son{
 	width: 46px;
 	height: 46px;
 	line-height: 46px;
@@ -519,10 +560,10 @@ del{
 	color: white;
 	float: left;
 }
-.bigBox .sg .con .box:first-child .time .son:nth-child(1){
+.bigBox .sg .con .box1 .time .son:nth-child(1){
 	margin-left: 33px;
 }
-.bigBox .sg .con .box:first-child .time .son1{
+.bigBox .sg .con .box1 .time .son1{
 	width: 15px;
 	height: 46px;
 	line-height: 46px;
@@ -920,6 +961,7 @@ del{
 .tj .title{
 	width: 100%;
 	height: 80px;
+	color: #ccc;
 }
 .tj .title .font{
 	height: 58px;
@@ -931,15 +973,39 @@ del{
 	font-size: 22px;
 	font-weight: 200;
 }
-.tj .title .fanye{
-	width: 234px;
-	height: 58px;
+.tj .title .left,.tj .title .right{
 	float: right;
- 	margin-top: 22px; 
+	width: 36px;
+	height: 24px;
+	margin-top: 44px;
+	border: 1px solid #ccc;
+	font-size: 20px;
+	font-weight: 700;
+	text-align: center;
+	line-height: 23px;
+}
+.tj .title .hot3{
+	color: #ff6700;
+	cursor: pointer;
+}
+.tj .title .right{
+	border-left: 0;
+}
+.tj .title .hot4{
+	color: #666;
 }
 .tj .con{
 	width: 100%;
 	height: 300px;
+	position: relative;
+	overflow: hidden;
+}
+.tj .con .BOXcon{
+	width: 2480px;
+	height: 300px;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 .tj .con .box{
 	width: 234px;
@@ -957,9 +1023,10 @@ del{
 	position: absolute;
 	top: 0;
 	left: 0;
+	transition: all 0.3s;
 }
 .tj .con .boxs:hover{
-	box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.1);
+	box-shadow: 5px 10px 10px 1px rgba(0, 0, 0, 0.3);
 	transform: translate(0px,-4px);
 }
 .tj .con .box1{
