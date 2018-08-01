@@ -353,7 +353,7 @@ window.onload=function () {
     }
 
     function TIME(){
-        let date=new Date(2018,6,27,18);
+        let date=new Date(2020,6,27,18);
         let time=new Date();
         let times=Math.floor((date-time)/1000);
         let arr=[];
